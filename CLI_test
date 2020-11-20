@@ -12,3 +12,21 @@ IV: secureivl337
 Checksum: ]w\xf0\x18\xd2\xbfwx`T\x86U\xd8Ms\x82\xdc'\xd6\xce\x81n\xdeh\xf6]rb\x14c\xd9\xdah\t:\xe9\xc4\x9b\xa8\xd7y!%\xd8\x1d
 <class 'str'>
  
+ 
+Traceback (most recent call last):
+  File "/usr/lib/python3/dist-packages/cryptography/utils.py", line 34, in _check_byteslike
+    memoryview(value)
+TypeError: memoryview: a bytes-like object is required, not 'str'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "./Documents/THM/cryptTHM.py", line 46, in <module>
+    cipher = Cipher(algorithms.AES(key), modes.CBC(iv))
+  File "/usr/lib/python3/dist-packages/cryptography/hazmat/primitives/ciphers/algorithms.py", line 38, in __init__
+    self.key = _verify_key_size(self, key)
+  File "/usr/lib/python3/dist-packages/cryptography/hazmat/primitives/ciphers/algorithms.py", line 17, in _verify_key_size
+    utils._check_byteslike("key", key)
+  File "/usr/lib/python3/dist-packages/cryptography/utils.py", line 36, in _check_byteslike
+    raise TypeError("{} must be bytes-like".format(name))
+TypeError: key must be bytes-like
