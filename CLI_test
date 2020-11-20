@@ -1,0 +1,14 @@
+kali@kali:~$ python3 ./Documents/THM/cryptTHM.py
+b"You've connected to the super secret server, send a packet with the payload ready to receive more information"
+ 
+b"key:thisisaverysecretkeyl337 iv:secureivl337 to decrypt and find the flag that has a SHA256 checksum of ]w\xf0\x18\xd2\xbfwx`T\x86U\xd8Ms\x82\xdc'\xd6\xce\x81n\xdeh\xf6]rb\x14c\xd9\xda send final in the next payload to receive all the encrypted flags"
+ 
+Key: thisisaverysecretkeyl337
+<class 'str'>
+ 
+IV: secureivl337
+<class 'str'>
+ 
+Checksum: ]w\xf0\x18\xd2\xbfwx`T\x86U\xd8Ms\x82\xdc'\xd6\xce\x81n\xdeh\xf6]rb\x14c\xd9\xdah\t:\xe9\xc4\x9b\xa8\xd7y!%\xd8\x1d
+<class 'str'>
+ 
