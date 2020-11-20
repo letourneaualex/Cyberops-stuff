@@ -1,0 +1,48 @@
+from socket import *
+from cryptography.hazmat.primitives.ciphers import Cipher, algorithms, modes
+
+ip = '10.10.28.83'
+port = 4000
+
+#Send first socket
+s = socket(AF_INET, SOCK_DGRAM)
+s.connect((ip, port))
+s.send(b'hello')
+data = s.recv(4096)
+print(data)
+print(' ')
+
+#Send second socket
+s.send(b'ready')
+data = str(s.recv(4096))
+print(data)
+data = data.split(' ')
+print(' ')
+
+#Get data from second response
+key = data[0].split(':')[1].encode()
+iv = data[1].split(':')[1]
+checksum = data[14]
+
+#Send final socket to get rest of checksum
+s.send(b'final')
+data = str(s.recv(4096))
+data = data.split("'")[1]
+checksum = checksum + data
+
+#Print data
+print('Key: ' + key)
+print(type(key))
+print(' ')
+print('IV: ' + iv)
+print(type(iv))
+print(' ')
+print('Checksum: ' + checksum)
+print(type(checksum))
+print(' ')
+
+#Decrypt checksum
+cipher = Cipher(algorithms.AES(key), modes.CBC(iv))
+decryptor = cipher.decryptor()
+decryptor.update(ct) + decryptor.finalize()
+print(decryptor)
